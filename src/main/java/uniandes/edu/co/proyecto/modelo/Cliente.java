@@ -8,11 +8,11 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "clientes")
-public class Cliente extends Usuario {
+public class Cliente {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
      
-    private Integer id;
+    private Integer idCliente;
     private String tipoCliente;
     private String estadoCliente;
 
@@ -20,17 +20,18 @@ public class Cliente extends Usuario {
     public Cliente(String tipoCliente, String estadoCliente){
         this.tipoCliente=tipoCliente;
         this.estadoCliente=estadoCliente;
-    }
 
+    }
+    
     //constructor vacio
     public Cliente(){;}
 
     //getters y setters
     public Integer getId() {
-        return id;
+        return idCliente;
     }
     public void setId(Integer id) {
-        this.id = id;
+        this.idCliente = id;
     }
     public String getTipoCliente() {
         return tipoCliente;

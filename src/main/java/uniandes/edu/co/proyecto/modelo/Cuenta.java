@@ -8,7 +8,7 @@ import jakarta.persistence.GeneratedValue;
 
 
 @Entity
-@Table(name="Cuentas")
+@Table(name="cuentas")
 public class Cuenta {
 
     @Id
@@ -17,15 +17,12 @@ public class Cuenta {
     private Integer id;
     private String tipo;
     private Integer numeroCuenta;
-    private Cliente cliente; 
     private String estado;
 
     
-
-    public Cuenta( String tipo, Integer numeroCuenta, Cliente cliente, String estado) {
+    public Cuenta( String tipo, Integer numeroCuenta, String estado) {
         this.tipo = tipo;
         this.numeroCuenta = numeroCuenta;
-        this.cliente = cliente;
         this.estado = estado;
     }
 
@@ -53,14 +50,6 @@ public class Cuenta {
 
     public void setNumeroCuenta(Integer numeroCuenta) {
         this.numeroCuenta = numeroCuenta;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
     }
 
     public String getEstado() {

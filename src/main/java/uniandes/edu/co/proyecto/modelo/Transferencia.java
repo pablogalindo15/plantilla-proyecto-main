@@ -15,22 +15,21 @@ public class Transferencia {
     @GeneratedValue(strategy=GenerationType.AUTO)
 //Declaracion de variables
     private Integer id;
-    private Cuenta cuentaDestino;
+    private Integer cuentaDestino;
 
 //Constructor
-    public Transferencia(Cuenta cuentaDestino){
-        this.cuentaDestino=cuentaDestino;
-    }
+    public Transferencia(Integer cuentaDestino){
+        this.cuentaDestino=cuentaDestino;}
 
 //Constructoir vacio
     public Transferencia(){;}
 
 //Getters y Setters
-    public Cuenta getCuentaDestino() {
+    public Integer getCuentaDestino() {
         return cuentaDestino;
     }
 
-    public void setCuentaDestino(Cuenta cuentaDestino) {
+    public void setCuentaDestino(Integer cuentaDestino) {
         this.cuentaDestino = cuentaDestino;
     }
 

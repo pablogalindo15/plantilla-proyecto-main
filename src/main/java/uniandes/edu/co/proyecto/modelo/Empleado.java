@@ -8,7 +8,7 @@ import jakarta.persistence.GeneratedValue;
 
 @Entity
 @Table(name="empleados")
-public class Empleado extends Usuario{
+public class Empleado {
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)

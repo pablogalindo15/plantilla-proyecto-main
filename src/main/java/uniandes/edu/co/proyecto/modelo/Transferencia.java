@@ -2,6 +2,8 @@ package uniandes.edu.co.proyecto.modelo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,6 +17,10 @@ public class Transferencia {
     @GeneratedValue(strategy=GenerationType.AUTO)
 //Declaracion de variables
     private Integer id;
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    private OperacionBancaria OperacionBancaria;
+
     private Integer cuentaDestino;
 
 //Constructor

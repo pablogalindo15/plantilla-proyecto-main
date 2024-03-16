@@ -28,7 +28,7 @@ public class Oficina {
 //Constructor vacio
     public Oficina(){;}
 
-    //Getters y setters
+//Getters y setters
     public Integer getId() {
         return id;
     }

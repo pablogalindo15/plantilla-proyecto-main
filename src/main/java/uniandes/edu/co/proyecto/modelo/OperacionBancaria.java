@@ -7,7 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
 @Entity
-@Table(name="OperacionesBancarias")
+@Table(name="operaciones_bancarias")
 public class OperacionBancaria {
     
     @Id

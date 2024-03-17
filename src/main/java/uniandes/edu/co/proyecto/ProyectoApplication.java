@@ -8,8 +8,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import uniandes.edu.co.proyecto.modelo.Cliente;
+import uniandes.edu.co.proyecto.modelo.Empleado;
 import uniandes.edu.co.proyecto.modelo.Usuario;
 import uniandes.edu.co.proyecto.repositorio.ClienteRepository;
+import uniandes.edu.co.proyecto.repositorio.EmpleadoRepository;
 import uniandes.edu.co.proyecto.repositorio.UsuarioRepository;
 
 @SpringBootApplication
@@ -18,6 +20,7 @@ public class ProyectoApplication implements CommandLineRunner{
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	private ClienteRepository clienteRepository;
+	private EmpleadoRepository empleadoRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoApplication.class, args);
@@ -36,6 +39,12 @@ public class ProyectoApplication implements CommandLineRunner{
 		for (Cliente c: clientes)
 		{
 			System.out.println(c);
+		}
+
+		Collection<Empleado> empleados = empleadoRepository.darEmpleados();
+		for (Empleado e: empleados)
+		{
+			System.out.println(e);
 		}
 
 

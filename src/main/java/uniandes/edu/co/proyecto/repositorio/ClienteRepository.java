@@ -20,15 +20,15 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO clientes VALUES (idUsuarios.nextval, :capacidad, :profundidad, :horaInicio, :horaFin, :costoAdicional);" +
+    @Query(value = "INSERT INTO clientes VALUES (idUsuarios.nextval, :tipoCliente, :estadoCliente);" +
                     "INSERT INTO usuarios VALUES ((SELECT idUsuarios.CURRVAL FROM DUAL), :nombre)", nativeQuery = true)
-    void insertarCliente(@Param("nombre") String nombre, @Param("capacidad") Integer capacidad, @Param("profundidad") Integer profundidad, @Param("horaInicio") Date horaInicio, @Param("horaFin") Date horaFin, @Param("costoAdicional") Double costoAdicional);
+    void insertarCliente(@Param("tipoCliente") String tipoCliente, @Param("estadoCliente") String estadoCliente);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE clientes SET capacidad = :capacidad, profundidad = :profundidad, hora_inicio = :horaInicio, hora_fin = :horaFin, costo_adicional = :costoAdicional WHERE id = :id;" +
+    @Query(value = "UPDATE clientes SET tipoCliente= :tipoCliente, estadoCliente = :estadoCliente WHERE id = :id;" +
                     "UPDATE usuarios SET nombre = :nombre WHERE id = :id", nativeQuery = true)
-    void actualizarCliente(@Param("id") Integer id, @Param("nombre") String nombre, @Param("capacidad") Integer capacidad, @Param("profundidad") Integer profundidad, @Param("horaInicio") Date horaInicio, @Param("horaFin") Date horaFin, @Param("costoAdicional") Double costoAdicional);
+    void actualizarCliente(@Param("tipoCliente") String tipoCliente, @Param("estadoCliente") String estadoCliente);
 
     @Modifying
     @Transactional

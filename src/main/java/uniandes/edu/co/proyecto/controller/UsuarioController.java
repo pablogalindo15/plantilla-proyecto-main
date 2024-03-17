@@ -48,7 +48,7 @@ public class UsuarioController {
     }
   }
 
-  @PostMapping("usuarios/{id}/edi/save")
+  @PostMapping("usuarios/{id}/edit/save")
   public String usuarioEditaGuardar(@PathVariable("id")int id, @ModelAttribute Usuario usuario ) {
       usuarioRepository.actualizarUsuario(id, usuario.getNumeroDocumento(), usuario.getTipoDocumento(), usuario.getNombre(),
       usuario.getDireccionFisica(), usuario.getDireccionElectronica(), usuario.getTelefono(),usuario.getCiudad(),

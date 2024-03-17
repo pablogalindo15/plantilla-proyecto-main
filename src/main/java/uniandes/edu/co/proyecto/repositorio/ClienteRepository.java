@@ -14,8 +14,8 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
     @Query(value = "SELECT clientes.*, usuarios.nombre FROM clientes INNER JOIN usuarios ON clientes.id = usuarios.id", nativeQuery = true)
     Collection<Cliente> darClientes();
 
-    @Query(value = "SELECT clientes.*, usuarios.id FROM clientes INNER JOIN usuarios ON clientes.id = usuarios.id WHERE id = :id", nativeQuery = true)
-    Cliente darCliente(@Param("id") Integer id);
+    @Query(value = "SELECT clientes.*, usuarios.id FROM clientes INNER JOIN usuarios ON clientes.id = usuarios.id WHERE idCliente = :idCliente", nativeQuery = true)
+    Cliente darCliente(@Param("idCliente") Integer idCliente);
 
     @Modifying
     @Transactional
@@ -25,13 +25,13 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE clientes SET tipoCliente= :tipoCliente, estadoCliente = :estadoCliente WHERE id = :id;" +
-                    "UPDATE usuarios SET nombre = :nombre WHERE id = :id", nativeQuery = true)
+    @Query(value = "UPDATE clientes SET tipoCliente= :tipoCliente, estadoCliente = :estadoCliente WHERE idCliente = :idCliente;" +
+                    "UPDATE usuarios SET nombre = :nombre WHERE idCliente = :idCliente", nativeQuery = true)
     void actualizarCliente(@Param("tipoCliente") String tipoCliente, @Param("estadoCliente") String estadoCliente);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM clientes WHERE id = :id;" +
-                    "DELETE FROM usuarios WHERE id = :id", nativeQuery = true)
-    void eliminarCliente(@Param("id") Integer id);
+    @Query(value = "DELETE FROM clientes WHERE idCliente = :idCliente;" +
+                    "DELETE FROM usuarios WHERE idCliente = :idCliente", nativeQuery = true)
+    void eliminarCliente(@Param("idCliente") Integer idCliente);
 }

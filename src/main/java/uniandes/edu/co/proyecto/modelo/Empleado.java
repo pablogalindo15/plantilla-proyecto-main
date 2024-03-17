@@ -24,6 +24,7 @@ public class Empleado {
     private Usuario usuario;
     
     private String cargo;
+    
     @ManyToOne
     @JoinColumn(name="idOficinaFK", referencedColumnName = "idOficina")
     private Oficina idOficinaFK;

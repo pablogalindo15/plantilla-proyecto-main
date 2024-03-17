@@ -16,24 +16,28 @@ public class OperacionBancariaCuenta {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
-    private String tipo;
-    
     @OneToOne
     @PrimaryKeyJoinColumn
     private OperacionBancaria OperacionBancaria;
 
+    private String tipo;
+
     @ManyToOne
     @JoinColumn(name="idCuentaFK", referencedColumnName = "idCuenta")
-    private Cuenta idCuentaFK;
+    private Integer idCuentaFK;
 
-    
 
-    private String tipoOperacionCuenta;
+    public OperacionBancariaCuenta(String tipo, Integer idCuentaFK) {
+        this.tipo = tipo;
+        this.idCuentaFK= idCuentaFK;
+    }
 
-    public OperacionBancariaCuenta(String tipoOperacionCuenta, Cuenta idCuentaFK, String tipo) {
-        this.tipoOperacionCuenta = tipoOperacionCuenta;
-        this.idCuentaFK=idCuentaFK;
-        this.tipo=tipo;
+    public Integer getIdCuentaFK() {
+        return idCuentaFK;
+    }
+
+    public void setIdCuentaFK(Integer idCuentaFK) {
+        this.idCuentaFK = idCuentaFK;
     }
 
     public OperacionBancariaCuenta(){;}
@@ -42,43 +46,17 @@ public class OperacionBancariaCuenta {
         return id;
     }
 
-    public String getTipoOperacionCuenta() {
-        return tipoOperacionCuenta;
+    public String getTipo() {
+        return tipo;
     }
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public void setTipoOperacionCuenta(String tipoOperacionCuenta) {
-        this.tipoOperacionCuenta = tipoOperacionCuenta;
-    }
-
-    public OperacionBancaria getOperacionBancaria() {
-        return OperacionBancaria;
-    }
-
-    public void setOperacionBancaria(OperacionBancaria operacionBancaria) {
-        OperacionBancaria = operacionBancaria;
-    }
-
-    public Cuenta getIdCuentaFK() {
-        return idCuentaFK;
-    }
-
-    public void setIdCuentaFK(Cuenta idCuentaFK) {
-        this.idCuentaFK = idCuentaFK;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
-
     
     
 

@@ -10,10 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 import uniandes.edu.co.proyecto.modelo.Transferencia;
 
 public interface TransferenciaRepository extends JpaRepository<Transferencia, Integer> {
-    @Query(value = "SELECT t.*, ob.nombre FROM transferencias t INNER JOIN operaciones_bancarias ob ON t.id = ob.id", nativeQuery = true)
+    @Query(value = "SELECT t.*, ob.nombre FROM transferencias t INNER JOIN operaciones_bancarias_cuentas ob ON t.id = ob.id", nativeQuery = true)
     Collection<Transferencia> darTransferencias();
 
-    @Query(value = "SELECT t.*, ob.id FROM transferencias t INNER JOIN operaciones_bancarias ob ON t.id = ob.id WHERE t.id = :id", nativeQuery = true)
+    @Query(value = "SELECT t.*, ob.id FROM transferencias t INNER JOIN operaciones_bancarias_cuentas ob ON t.id = ob.id WHERE t.id = :id", nativeQuery = true)
     Transferencia darTransferencia(@Param("id") Integer id);
 
     @Modifying

@@ -20,7 +20,7 @@ public class Transferencia {
     
     @OneToOne
     @PrimaryKeyJoinColumn
-    private OperacionBancaria OperacionBancaria;
+    private OperacionBancariaCuenta OperacionBancariaCuenta;
 
     private Integer cuentaDestino;
 

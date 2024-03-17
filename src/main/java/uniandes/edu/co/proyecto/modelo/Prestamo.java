@@ -1,5 +1,7 @@
 package uniandes.edu.co.proyecto.modelo;
 
+import java.sql.Date;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,7 +21,7 @@ public class Prestamo {
     private Integer monto;
     private Integer interes;
     private Integer numeroCuotas;
-    private String diaPagoCuotas;
+    private Date diaPagoCuotas;
     private String estado;
     private String tipo;
 
@@ -28,14 +30,13 @@ public class Prestamo {
     private Cliente idClienteFK;
 
 //Constructor 
-    public Prestamo(Integer monto, Integer interes, Integer numeroCuotas, String diaPagoCuotas, String estado, String tipo, Cliente idClienteFK ){
+    public Prestamo(Integer monto, Integer interes, Integer numeroCuotas, Date diaPagoCuotas, String estado, String tipo, Cliente idClienteFK ){
         this.monto=monto;
         this.interes=interes;
         this.numeroCuotas=numeroCuotas;
         this.diaPagoCuotas = diaPagoCuotas;
         this.estado=estado;
         this.tipo=tipo;
-        this.idClienteFK=idClienteFK;
         this.idClienteFK = idClienteFK;
     }
     
@@ -66,10 +67,10 @@ public class Prestamo {
     public void setNumeroCuotas(Integer numeroCuotas) {
         this.numeroCuotas = numeroCuotas;
     }
-    public String getDiaPagoCuotas() {
+    public Date getDiaPagoCuotas() {
         return diaPagoCuotas;
     }
-    public void setDiaPagoCuotas(String diaPagoCuotas) {
+    public void setDiaPagoCuotas(Date diaPagoCuotas) {
         this.diaPagoCuotas = diaPagoCuotas;
     }
     public String getEstado() {

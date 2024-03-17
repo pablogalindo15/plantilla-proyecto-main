@@ -42,7 +42,9 @@ public class Prestamo {
     
 //Constructor vacio
 
-//Getters y setters 
+public Prestamo() {}
+
+    //Getters y setters 
     public Integer getId() {
         return idPrestamo;
     }

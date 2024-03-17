@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
+
+import uniandes.edu.co.proyecto.modelo.Cliente;
 import uniandes.edu.co.proyecto.modelo.Cuenta;
 import java.util.Collection;
 
@@ -19,12 +21,12 @@ public interface CuentaRepository extends JpaRepository<Cuenta, Integer> {
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO cuentas (tipo, numeroCuenta, estado, idClienteFK, saldo) VALUES (:tipo, :numeroCuenta, :estado, :idClienteFK, :saldo)", nativeQuery = true)
-    void insertarCuenta(@Param("tipo") String tipo, @Param("numeroCuenta") Integer numeroCuenta, @Param("estado") String estado, @Param("idClienteFK") Integer idClienteFK, @Param("saldo") Integer saldo);
+    void insertarCuenta(@Param("tipo") String tipo, @Param("numeroCuenta") Integer numeroCuenta, @Param("estado") String estado, @Param("idClienteFK") Cliente idClienteFK, @Param("saldo") Integer saldo);
 
     @Modifying
     @Transactional
     @Query(value = "UPDATE cuentas SET tipo = :tipo, numeroCuenta = :numeroCuenta, estado = :estado, idClienteFK = :idClienteFK, saldo = :saldo WHERE idCuenta = :idCuenta", nativeQuery = true)
-    void actualizarCuenta(@Param("tipo") String tipo, @Param("numeroCuenta") Integer numeroCuenta, @Param("estado") String estado, @Param("idClienteFK") Integer idClienteFK, @Param("saldo") Integer saldo);
+    void actualizarCuenta(@Param("tipo") String tipo, @Param("numeroCuenta") Integer numeroCuenta, @Param("estado") String estado, @Param("idClienteFK") Cliente idClienteFK, @Param("saldo") Integer saldo);
 
     @Modifying
     @Transactional

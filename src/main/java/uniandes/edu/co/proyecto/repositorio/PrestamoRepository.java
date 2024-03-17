@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
+
+import uniandes.edu.co.proyecto.modelo.Cliente;
 import uniandes.edu.co.proyecto.modelo.Prestamo;
 
 public interface PrestamoRepository extends JpaRepository<Prestamo, Integer> {
@@ -20,12 +22,12 @@ public interface PrestamoRepository extends JpaRepository<Prestamo, Integer> {
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO prestamos (monto, interes, numeroCuotas,diaPagoCuotas, estado, tipo, idClienteFK) VALUES (:monto, :interes, :numeroCuotas, :diaPagoCuotas, :estado, :tipo, :idClienteFK)", nativeQuery = true)
-    void insertarPrestamo(@Param("monto") Integer monto, @Param("interes") Integer interes, @Param("numeroCuotas") Integer numeroCuotas, @Param("diaPagoCuotas") Date diaPagoCuotas,@Param("estado") String estado, @Param("tipo") String tipo, @Param("idClienteFK") Integer idClienteFK);
+    void insertarPrestamo(@Param("monto") Integer monto, @Param("interes") Integer interes, @Param("numeroCuotas") Integer numeroCuotas, @Param("diaPagoCuotas") Date diaPagoCuotas,@Param("estado") String estado, @Param("tipo") String tipo, @Param("idClienteFK") Cliente idClienteFK);
 
     @Modifying
     @Transactional
     @Query(value = "UPDATE prestamos SET monto= :monto, interes= :interes, numeroCuotas= :numeroCuotas, diaPagoCuotas = :diaPagoCuotas, estado= :estado, tipo= :tipo, idClienteFK= :idClienteFK WHERE idPrestamo = :idPrestamo", nativeQuery = true)
-    void actualizarPrestamo(@Param("monto") Integer monto, @Param("interes") Integer interes, @Param("numeroCuotas") Integer numeroCuotas, @Param("diaPagoCuotas") Date diaPagoCuotas,@Param("estado") String estado, @Param("tipo") String tipo, @Param("idClienteFK") Integer idClienteFK);
+    void actualizarPrestamo(@Param("monto") Integer monto, @Param("interes") Integer interes, @Param("numeroCuotas") Integer numeroCuotas, @Param("diaPagoCuotas") Date diaPagoCuotas,@Param("estado") String estado, @Param("tipo") String tipo, @Param("idClienteFK") Cliente idClienteFK);
 
     @Modifying
     @Transactional

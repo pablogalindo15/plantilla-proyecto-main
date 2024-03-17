@@ -1,5 +1,4 @@
 package uniandes.edu.co.proyecto.repositorio;
-import java.sql.Date;
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -20,16 +19,15 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO empleados VALUES (idUsuarios.nextval, :cargo);" +
+    @Query(value = "INSERT INTO empleados VALUES (idUsuarios.nextval, :cargo, :idOficina);" +
                     "INSERT INTO usuarios VALUES ((SELECT idUsuarios.CURRVAL FROM DUAL), :nombre)", nativeQuery = true)
-    void insertarEmpleado(@Param("tipoEmpleado") String tipoEmpleado, @Param("estadoEmpleado") String estadoEmpleado);
+    void insertarEmpleado(@Param("cargo") String cargo, @Param("idOficina") Integer idOficina);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE empleados SET cargo= : cargo  WHERE id = :id;" +
+    @Query(value = "UPDATE empleados SET cargo= : cargo, idOficina = :idOficina  WHERE id = :id;" +
                     "UPDATE usuarios SET nombre = :nombre WHERE id = :id", nativeQuery = true)
-    void actualizarEmpleado(@Param("tipoEmpleado") String tipoEmpleado, @Param("estadoEmpleado") String estadoEmpleado);
-
+    void actualizarEmpleado(@Param("cargo") String cargo, @Param("idOficina") Integer idOficina);
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM empleados WHERE id = :id;" +
